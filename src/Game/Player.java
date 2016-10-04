@@ -30,16 +30,21 @@ public class Player implements Serializable {
     //
     private final String username;
     
+    //
+    private final Socket socket;
+    
     /**
      * 
      * @param playerNum 
      * @param username 
      * @param irlName 
+     * @param socket 
      */
-    public Player(int playerNum, String username, String irlName) {
+    public Player(int playerNum, String username, String irlName, Socket socket) {
         this.playerNum = playerNum;
         this.username = username;
         this.irlName = irlName;
+        this.socket = socket;
     }
     
     /**
@@ -96,5 +101,13 @@ public class Player implements Serializable {
      */
     public String getUsername() {
         return username;
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public Socket getSocket() {
+        return socket;
     }
 }

@@ -79,7 +79,7 @@ public class ClueLessServer extends JFrame implements ClueLessConstants {
             }
             
             // create a new player object
-            Player player1Player = new Player(PLAYER1, "Ryan", "Ryan");
+            Player player1Player = new Player(PLAYER1, "Ryan", "Ryan", player1);
             
             /*
             // Connect to player 2

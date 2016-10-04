@@ -13,7 +13,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 import java.net.*;
-import java.util.*;
+import java.util.Arrays;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
@@ -21,7 +21,7 @@ import javax.swing.border.LineBorder;
  * 
  */
 public class ClueLessClient extends JFrame
-        implements Runnable, ClueLessConstants {
+        implements Runnable, ClueLessConstants, CustomListener {
     // Indicate whether the player has the turn
     private boolean myTurn = false;
 
@@ -30,6 +30,8 @@ public class ClueLessClient extends JFrame
 
     // Create and initialize a status label
     private JLabel jlblStatus = new JLabel();
+    
+    private Socket socket;
 
     // Input and output streams from/to server
     private DataInputStream fromServer;
@@ -40,23 +42,11 @@ public class ClueLessClient extends JFrame
 
     // Wait for the player to mark a cell
     private boolean waiting = true;
-
-    // Host name or IP address
-    private String host = "127.0.0.1";
-    
-    // Integer of port for the server
-    private int serverPort = 8000;
     
     // Wait to be connected to server to do other things
     private boolean connected = false;
     
-    private JTextField jtfServerIP;
-    
-    private JTextField jtfServerPort;
-    
-    private JTextField jtfUsername;
-    
-    private JPasswordField jpfPassword;
+    private String username;
     
     private JTextArea jtaChatWindow;
     
@@ -84,46 +74,12 @@ public class ClueLessClient extends JFrame
      * 
      */
     public final void connectionUI() {
-        GridLayout gridLayout1 = new GridLayout(6, 2, 2, 10);
         
-        JPanel panel1 = new JPanel(gridLayout1);
+        //
+        Connection connectPanel = new Connection(this, socket, toServer, fromServer);
+        connectPanel.addListeners(this);
         
-        JLabel jlServerIP = new JLabel("Server IP Address: ");
-        JLabel jlServerPort = new JLabel("Server Port: ");
-        JLabel jlUsername = new JLabel("Username: ");
-        JLabel jlPassword = new JLabel("Password: ");
-        jtfServerIP = new JTextField(host, 5);
-        jtfServerPort = new JTextField("" + serverPort, 5);
-        jtfUsername = new JTextField("Ryan", 5);
-        jpfPassword = new JPasswordField("password", 5);
-        JButton jbConnect = new JButton("Connect");
-        jbConnect.setName("jbConnect");
-        jbConnect.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                connectToServer();
-            }
-        });
-        
-        panel1.add(jlServerIP);
-        panel1.add(jtfServerIP);
-        
-        panel1.add(jlServerPort);
-        panel1.add(jtfServerPort);
-        
-        panel1.add(jlUsername);
-        panel1.add(jtfUsername);
-        
-        panel1.add(jlPassword);
-        panel1.add(jpfPassword);
-        
-        panel1.add(new JLabel(""));
-        panel1.add(new JLabel(""));
-        panel1.add(new JLabel(""));
-        panel1.add(jbConnect);
-        
-        add(panel1);
-        
+        //
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(300,300);
         setTitle("ClueLess Client");
@@ -135,7 +91,8 @@ public class ClueLessClient extends JFrame
      */
     public final void setupGameUI() {
         //blank slate
-        getContentPane().removeAll();
+        System.out.println("setupGameUI()");
+        this.getContentPane().removeAll();
         this.setSize(700,580);
         this.setMinimumSize(this.getSize());
         double componentWidth = this.getWidth() - 35;
@@ -698,14 +655,14 @@ public class ClueLessClient extends JFrame
         mainConstraint.gridy = 2;
         mainConstraint.ipady = 30;
         mainPanel.add(textEntryPanel, mainConstraint);
-        jtfChatEntry = new JTextField("[" + jtfUsername.getText() + "]: ");
+        jtfChatEntry = new JTextField("[" + username + "]: ");
         Dimension chatEntryPSize =
                 new Dimension(
                         (int)componentWidth, (int)(componentHeight * 0.9));
         jtfChatEntry.setPreferredSize(chatEntryPSize);
         textEntryPanel.add(jtfChatEntry, BorderLayout.WEST);
         
-        add(mainPanel);
+        this.add(mainPanel);
         this.revalidate();
         this.repaint();
     }
@@ -720,46 +677,25 @@ public class ClueLessClient extends JFrame
     /**
      * 
      */
-    public void connectToServer() {
-        try {
-            System.out.println("Attemtping connection to server");
-            // Create a socket to connect to the server
-            Socket socket = new Socket(host, serverPort);
-            
-            // Create an output stream to send data to the server
-            toServer = new DataOutputStream(socket.getOutputStream());
-            
-            // Create an input stream to receive data from the server
-            fromServer = new DataInputStream(socket.getInputStream());
-            
-            System.out.println("Sending Username");
-            toServer.writeUTF(jtfUsername.getText());
+    @Override
+    public void run() {
         
-            System.out.println("Sending Password");
-            String password = new String(jpfPassword.getPassword());
-            toServer.writeUTF(password);
-            
-            int response = fromServer.read();
-            
-            if(response == 1) {
-                System.out.println("Correct credentials, connecting!");
-                setupGameUI();
-            }
-            else if(response == 0){
-                System.out.println("Incorrect username or password");
-                socket.close();
-            }
-        }
-        catch (Exception ex) {
-            System.err.println(ex);
-        }
     }
-    
+
     /**
      * 
      */
     @Override
-    public void run() {
-        
+    public void notifyListeners() {
+    }
+    
+    /**
+     * 
+     * @param username
+     */
+    public void notified(String username) {
+        this.username = username;
+        this.connected = true;
+        setupGameUI();
     }
 }
