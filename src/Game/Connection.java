@@ -230,7 +230,8 @@ public class Connection extends JPanel {
      */
     public void notifyListeners() {
         for (ClueLessClient client : listeners) {
-            client.notified(jtfUsername.getText());
+            client.notified(
+                jtfUsername.getText(), socket, toServer, fromServer);
         }
     }
 }

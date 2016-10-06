@@ -12,7 +12,10 @@ package Game;
 import java.awt.*;
 import java.io.*;
 import java.net.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -27,6 +30,7 @@ public class ClueLessServer extends JFrame implements ClueLessConstants {
      * 
      */
     public ClueLessServer() {
+        //
         JTextArea jtaLog = new JTextArea();
         
         // Create a scroll pane to hold text area
@@ -35,6 +39,13 @@ public class ClueLessServer extends JFrame implements ClueLessConstants {
         // Add the scroll pane to the frame
         add(scrollPane, BorderLayout.CENTER);
         
+        //
+        NetworkListener thread;
+        
+        //
+        SimpleDateFormat df = new SimpleDateFormat("hh:mm");
+        
+        //
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400,400);
         setTitle("ClueLess Server");
@@ -78,9 +89,17 @@ public class ClueLessServer extends JFrame implements ClueLessConstants {
                 player1.close();
             }
             
+            player1Output.writeInt(PLAYER1);
+            
             // create a new player object
             Player player1Player = new Player(PLAYER1, "Ryan", "Ryan", player1);
             
+            thread = new NetworkListener(this, player1Input);
+            thread.start();
+            
+            player1Output.writeUTF("[server][set][player1][username][Ryan]");
+            player1Output.writeUTF("[server][set][player1][all][enable]");
+            player1Output.writeUTF("[server][chat][all][chat][[Ryan 20:55]: Yo, what up?!?]");
             /*
             // Connect to player 2
             Socket player2 = serverSocket.accept();
@@ -163,6 +182,16 @@ public class ClueLessServer extends JFrame implements ClueLessConstants {
         catch (IOException ex) {
             System.err.println(ex);
         }
+    }
+    
+    /**
+     * 
+     * @param response 
+     */
+    public void stringParser(String response) {
+        System.out.println("Received back " + response);
+        
+        //"[Player1 " + df.format(new Date()) + "]: " + 
     }
 }
 
