@@ -353,9 +353,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Colonel Mustard")) {
                     jlPlayer1Color.setIcon(yellow);
-                    player.setColor(Color.yellow);
-                    player.setCharNum(0);
-                    player.setCharacterName("Colonel Mustard");
+                    if (player.getPlayerNum() == 1) {
+                        player.setColor(Color.yellow);
+                        player.setCharNum(0);
+                        player.setCharacterName("Colonel Mustard");
+                    }
                     try {
                         toServer.writeUTF("[all][1][set][char][0]");
                     } catch (IOException ex) {
@@ -366,9 +368,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Miss Scarlet")) {
                     jlPlayer1Color.setIcon(red);
-                    player.setColor(Color.red);
-                    player.setCharNum(1);
-                    player.setCharacterName("Miss Scarlet");
+                    if (player.getPlayerNum() == 1) {
+                        player.setColor(Color.red);
+                        player.setCharNum(1);
+                        player.setCharacterName("Miss Scarlet");
+                    }
                     try {
                         toServer.writeUTF("[all][1][set][char][1]");
                     } catch (IOException ex) {
@@ -379,9 +383,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Professor Plum")) {
                     jlPlayer1Color.setIcon(purple);
-                    player.setColor(new Color(255,0,255));
-                    player.setCharNum(2);
-                    player.setCharacterName("Professor Plum");
+                    if (player.getPlayerNum() == 1) {
+                        player.setColor(new Color(255,0,255));
+                        player.setCharNum(2);
+                        player.setCharacterName("Professor Plum");
+                    }
                     try {
                         toServer.writeUTF("[all][1][set][char][2]");
                     } catch (IOException ex) {
@@ -392,9 +398,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mr. Green")) {
                     jlPlayer1Color.setIcon(green);
-                    player.setColor(Color.green);
-                    player.setCharNum(3);
-                    player.setCharacterName("Mr. Green");
+                    if (player.getPlayerNum() == 1) {
+                        player.setColor(Color.green);
+                        player.setCharNum(3);
+                        player.setCharacterName("Mr. Green");
+                    }
                     try {
                         toServer.writeUTF("[all][1][set][char][3]");
                     } catch (IOException ex) {
@@ -405,9 +413,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mrs. White")) {
                     jlPlayer1Color.setIcon(white);
-                    player.setColor(Color.white);
-                    player.setCharNum(4);
-                    player.setCharacterName("Mrs. White");
+                    if(player.getPlayerNum() == 1) {
+                        player.setColor(Color.white);
+                        player.setCharNum(4);
+                        player.setCharacterName("Mrs. White");
+                    }
                     try {
                         toServer.writeUTF("[all][1][set][char][4]");
                     } catch (IOException ex) {
@@ -416,9 +426,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                 }
                 else {
                     jlPlayer1Color.setIcon(blue);
-                    player.setColor(Color.blue);
-                    player.setCharNum(5);
-                    player.setCharacterName("Mrs. Peacock");
+                    if(player.getPlayerNum() == 1) {
+                        player.setColor(Color.blue);
+                        player.setCharNum(5);
+                        player.setCharacterName("Mrs. Peacock");
+                    }
                     try {
                         toServer.writeUTF("[all][1][set][char][5]");
                     } catch (IOException ex) {
@@ -513,9 +525,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Colonel Mustard")) {
                     jlPlayer2Color.setIcon(yellow);
-                    player.setColor(Color.yellow);
-                    player.setCharNum(0);
-                    player.setCharacterName("Colonel Mustard");
+                    if (player.getPlayerNum() == 2) {
+                        player.setColor(Color.yellow);
+                        player.setCharNum(0);
+                        player.setCharacterName("Colonel Mustard");
+                    }
                     try {
                         toServer.writeUTF("[all][2][set][char][0]");
                     } catch (IOException ex) {
@@ -526,9 +540,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Miss Scarlet")) {
                     jlPlayer2Color.setIcon(red);
-                    player.setColor(Color.red);
-                    player.setCharNum(1);
-                    player.setCharacterName("Miss Scarlet");
+                    if (player.getPlayerNum() == 2) {
+                        player.setColor(Color.red);
+                        player.setCharNum(1);
+                        player.setCharacterName("Miss Scarlet");
+                    }
                     try {
                         toServer.writeUTF("[all][2][set][char][1]");
                     } catch (IOException ex) {
@@ -539,9 +555,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Professor Plum")) {
                     jlPlayer2Color.setIcon(purple);
-                    player.setColor(new Color(255,0,255));
-                    player.setCharNum(2);
-                    player.setCharacterName("Professor Plum");
+                    if (player.getPlayerNum() == 2) {
+                        player.setColor(new Color(255,0,255));
+                        player.setCharNum(2);
+                        player.setCharacterName("Professor Plum");
+                    }
                     try {
                         toServer.writeUTF("[all][2][set][char][2]");
                     } catch (IOException ex) {
@@ -552,9 +570,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mr. Green")) {
                     jlPlayer2Color.setIcon(green);
-                    player.setColor(Color.green);
-                    player.setCharNum(3);
-                    player.setCharacterName("Mr. Green");
+                    if (player.getPlayerNum() == 2) {
+                        player.setColor(Color.green);
+                        player.setCharNum(3);
+                        player.setCharacterName("Mr. Green");
+                    }
                     try {
                         toServer.writeUTF("[all][2][set][char][3]");
                     } catch (IOException ex) {
@@ -565,9 +585,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mrs. White")) {
                     jlPlayer2Color.setIcon(white);
-                    player.setColor(Color.white);
-                    player.setCharNum(4);
-                    player.setCharacterName("Mrs. White");
+                    if(player.getPlayerNum() == 2) {
+                        player.setColor(Color.white);
+                        player.setCharNum(4);
+                        player.setCharacterName("Mrs. White");
+                    }
                     try {
                         toServer.writeUTF("[all][2][set][char][4]");
                     } catch (IOException ex) {
@@ -576,9 +598,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                 }
                 else {
                     jlPlayer2Color.setIcon(blue);
-                    player.setColor(Color.blue);
-                    player.setCharNum(5);
-                    player.setCharacterName("Mrs. Peacock");
+                    if(player.getPlayerNum() == 2) {
+                        player.setColor(Color.blue);
+                        player.setCharNum(5);
+                        player.setCharacterName("Mrs. Peacock");
+                    }
                     try {
                         toServer.writeUTF("[all][2][set][char][5]");
                     } catch (IOException ex) {
@@ -673,9 +697,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Colonel Mustard")) {
                     jlPlayer3Color.setIcon(yellow);
-                    player.setColor(Color.yellow);
-                    player.setCharNum(0);
-                    player.setCharacterName("Colonel Mustard");
+                    if (player.getPlayerNum() == 3) {
+                        player.setColor(Color.yellow);
+                        player.setCharNum(0);
+                        player.setCharacterName("Colonel Mustard");
+                    }
                     try {
                         toServer.writeUTF("[all][3][set][char][0]");
                     } catch (IOException ex) {
@@ -686,9 +712,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Miss Scarlet")) {
                     jlPlayer3Color.setIcon(red);
-                    player.setColor(Color.red);
-                    player.setCharNum(1);
-                    player.setCharacterName("Miss Scarlet");
+                    if (player.getPlayerNum() == 3) {
+                        player.setColor(Color.red);
+                        player.setCharNum(1);
+                        player.setCharacterName("Miss Scarlet");
+                    }
                     try {
                         toServer.writeUTF("[all][3][set][char][1]");
                     } catch (IOException ex) {
@@ -699,9 +727,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Professor Plum")) {
                     jlPlayer3Color.setIcon(purple);
-                    player.setColor(new Color(255,0,255));
-                    player.setCharNum(2);
-                    player.setCharacterName("Professor Plum");
+                    if (player.getPlayerNum() == 3) {
+                        player.setColor(new Color(255,0,255));
+                        player.setCharNum(2);
+                        player.setCharacterName("Professor Plum");
+                    }
                     try {
                         toServer.writeUTF("[all][3][set][char][2]");
                     } catch (IOException ex) {
@@ -712,9 +742,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mr. Green")) {
                     jlPlayer3Color.setIcon(green);
-                    player.setColor(Color.green);
-                    player.setCharNum(3);
-                    player.setCharacterName("Mr. Green");
+                    if (player.getPlayerNum() == 3) {
+                        player.setColor(Color.green);
+                        player.setCharNum(3);
+                        player.setCharacterName("Mr. Green");
+                    }
                     try {
                         toServer.writeUTF("[all][3][set][char][3]");
                     } catch (IOException ex) {
@@ -725,9 +757,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mrs. White")) {
                     jlPlayer3Color.setIcon(white);
-                    player.setColor(Color.white);
-                    player.setCharNum(4);
-                    player.setCharacterName("Mrs. White");
+                    if(player.getPlayerNum() == 3) {
+                        player.setColor(Color.white);
+                        player.setCharNum(4);
+                        player.setCharacterName("Mrs. White");
+                    }
                     try {
                         toServer.writeUTF("[all][3][set][char][4]");
                     } catch (IOException ex) {
@@ -736,9 +770,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                 }
                 else {
                     jlPlayer3Color.setIcon(blue);
-                    player.setColor(Color.blue);
-                    player.setCharNum(5);
-                    player.setCharacterName("Mrs. Peacock");
+                    if(player.getPlayerNum() == 3) {
+                        player.setColor(Color.blue);
+                        player.setCharNum(5);
+                        player.setCharacterName("Mrs. Peacock");
+                    }
                     try {
                         toServer.writeUTF("[all][3][set][char][5]");
                     } catch (IOException ex) {
@@ -833,9 +869,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Colonel Mustard")) {
                     jlPlayer4Color.setIcon(yellow);
-                    player.setColor(Color.yellow);
-                    player.setCharNum(0);
-                    player.setCharacterName("Colonel Mustard");
+                    if (player.getPlayerNum() == 4) {
+                        player.setColor(Color.yellow);
+                        player.setCharNum(0);
+                        player.setCharacterName("Colonel Mustard");
+                    }
                     try {
                         toServer.writeUTF("[all][4][set][char][0]");
                     } catch (IOException ex) {
@@ -846,9 +884,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Miss Scarlet")) {
                     jlPlayer4Color.setIcon(red);
-                    player.setColor(Color.red);
-                    player.setCharNum(1);
-                    player.setCharacterName("Miss Scarlet");
+                    if (player.getPlayerNum() == 4) {
+                        player.setColor(Color.red);
+                        player.setCharNum(1);
+                        player.setCharacterName("Miss Scarlet");
+                    }
                     try {
                         toServer.writeUTF("[all][4][set][char][1]");
                     } catch (IOException ex) {
@@ -859,9 +899,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Professor Plum")) {
                     jlPlayer4Color.setIcon(purple);
-                    player.setColor(new Color(255,0,255));
-                    player.setCharNum(2);
-                    player.setCharacterName("Professor Plum");
+                    if (player.getPlayerNum() == 4) {
+                        player.setColor(new Color(255,0,255));
+                        player.setCharNum(2);
+                        player.setCharacterName("Professor Plum");
+                    }
                     try {
                         toServer.writeUTF("[all][4][set][char][2]");
                     } catch (IOException ex) {
@@ -872,9 +914,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mr. Green")) {
                     jlPlayer4Color.setIcon(green);
-                    player.setColor(Color.green);
-                    player.setCharNum(3);
-                    player.setCharacterName("Mr. Green");
+                    if (player.getPlayerNum() == 4) {
+                        player.setColor(Color.green);
+                        player.setCharNum(3);
+                        player.setCharacterName("Mr. Green");
+                    }
                     try {
                         toServer.writeUTF("[all][4][set][char][3]");
                     } catch (IOException ex) {
@@ -885,9 +929,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mrs. White")) {
                     jlPlayer4Color.setIcon(white);
-                    player.setColor(Color.white);
-                    player.setCharNum(4);
-                    player.setCharacterName("Mrs. White");
+                    if(player.getPlayerNum() == 4) {
+                        player.setColor(Color.white);
+                        player.setCharNum(4);
+                        player.setCharacterName("Mrs. White");
+                    }
                     try {
                         toServer.writeUTF("[all][4][set][char][4]");
                     } catch (IOException ex) {
@@ -896,9 +942,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                 }
                 else {
                     jlPlayer4Color.setIcon(blue);
-                    player.setColor(Color.blue);
-                    player.setCharNum(5);
-                    player.setCharacterName("Mrs. Peacock");
+                    if(player.getPlayerNum() == 4) {
+                        player.setColor(Color.blue);
+                        player.setCharNum(5);
+                        player.setCharacterName("Mrs. Peacock");
+                    }
                     try {
                         toServer.writeUTF("[all][4][set][char][5]");
                     } catch (IOException ex) {
@@ -993,9 +1041,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Colonel Mustard")) {
                     jlPlayer5Color.setIcon(yellow);
-                    player.setColor(Color.yellow);
-                    player.setCharNum(0);
-                    player.setCharacterName("Colonel Mustard");
+                    if (player.getPlayerNum() == 5) {
+                        player.setColor(Color.yellow);
+                        player.setCharNum(0);
+                        player.setCharacterName("Colonel Mustard");
+                    }
                     try {
                         toServer.writeUTF("[all][5][set][char][0]");
                     } catch (IOException ex) {
@@ -1006,9 +1056,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Miss Scarlet")) {
                     jlPlayer5Color.setIcon(red);
-                    player.setColor(Color.red);
-                    player.setCharNum(1);
-                    player.setCharacterName("Miss Scarlet");
+                    if (player.getPlayerNum() == 5) {
+                        player.setColor(Color.red);
+                        player.setCharNum(1);
+                        player.setCharacterName("Miss Scarlet");
+                    }
                     try {
                         toServer.writeUTF("[all][5][set][char][1]");
                     } catch (IOException ex) {
@@ -1019,9 +1071,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Professor Plum")) {
                     jlPlayer5Color.setIcon(purple);
-                    player.setColor(new Color(255,0,255));
-                    player.setCharNum(2);
-                    player.setCharacterName("Professor Plum");
+                    if (player.getPlayerNum() == 5) {
+                        player.setColor(new Color(255,0,255));
+                        player.setCharNum(2);
+                        player.setCharacterName("Professor Plum");
+                    }
                     try {
                         toServer.writeUTF("[all][5][set][char][2]");
                     } catch (IOException ex) {
@@ -1032,9 +1086,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mr. Green")) {
                     jlPlayer5Color.setIcon(green);
-                    player.setColor(Color.green);
-                    player.setCharNum(3);
-                    player.setCharacterName("Mr. Green");
+                    if (player.getPlayerNum() == 5) {
+                        player.setColor(Color.green);
+                        player.setCharNum(3);
+                        player.setCharacterName("Mr. Green");
+                    }
                     try {
                         toServer.writeUTF("[all][5][set][char][3]");
                     } catch (IOException ex) {
@@ -1045,9 +1101,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mrs. White")) {
                     jlPlayer5Color.setIcon(white);
-                    player.setColor(Color.white);
-                    player.setCharNum(4);
-                    player.setCharacterName("Mrs. White");
+                    if(player.getPlayerNum() == 5) {
+                        player.setColor(Color.white);
+                        player.setCharNum(4);
+                        player.setCharacterName("Mrs. White");
+                    }
                     try {
                         toServer.writeUTF("[all][5][set][char][4]");
                     } catch (IOException ex) {
@@ -1056,9 +1114,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                 }
                 else {
                     jlPlayer5Color.setIcon(blue);
-                    player.setColor(Color.blue);
-                    player.setCharNum(5);
-                    player.setCharacterName("Mrs. Peacock");
+                    if(player.getPlayerNum() == 5) {
+                        player.setColor(Color.blue);
+                        player.setCharNum(5);
+                        player.setCharacterName("Mrs. Peacock");
+                    }
                     try {
                         toServer.writeUTF("[all][5][set][char][5]");
                     } catch (IOException ex) {
@@ -1153,9 +1213,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Colonel Mustard")) {
                     jlPlayer6Color.setIcon(yellow);
-                    player.setColor(Color.yellow);
-                    player.setCharNum(0);
-                    player.setCharacterName("Colonel Mustard");
+                    if (player.getPlayerNum() == 6) {
+                        player.setColor(Color.yellow);
+                        player.setCharNum(0);
+                        player.setCharacterName("Colonel Mustard");
+                    }
                     try {
                         toServer.writeUTF("[all][6][set][char][0]");
                     } catch (IOException ex) {
@@ -1166,9 +1228,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Miss Scarlet")) {
                     jlPlayer6Color.setIcon(red);
-                    player.setColor(Color.red);
-                    player.setCharNum(1);
-                    player.setCharacterName("Miss Scarlet");
+                    if (player.getPlayerNum() == 6) {
+                        player.setColor(Color.red);
+                        player.setCharNum(1);
+                        player.setCharacterName("Miss Scarlet");
+                    }
                     try {
                         toServer.writeUTF("[all][6][set][char][1]");
                     } catch (IOException ex) {
@@ -1179,9 +1243,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Professor Plum")) {
                     jlPlayer6Color.setIcon(purple);
-                    player.setColor(new Color(255,0,255));
-                    player.setCharNum(2);
-                    player.setCharacterName("Professor Plum");
+                    if (player.getPlayerNum() == 6) {
+                        player.setColor(new Color(255,0,255));
+                        player.setCharNum(2);
+                        player.setCharacterName("Professor Plum");
+                    }
                     try {
                         toServer.writeUTF("[all][6][set][char][2]");
                     } catch (IOException ex) {
@@ -1192,9 +1258,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mr. Green")) {
                     jlPlayer6Color.setIcon(green);
-                    player.setColor(Color.green);
-                    player.setCharNum(3);
-                    player.setCharacterName("Mr. Green");
+                    if (player.getPlayerNum() == 6) {
+                        player.setColor(Color.green);
+                        player.setCharNum(3);
+                        player.setCharacterName("Mr. Green");
+                    }
                     try {
                         toServer.writeUTF("[all][6][set][char][3]");
                     } catch (IOException ex) {
@@ -1205,9 +1273,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mrs. White")) {
                     jlPlayer6Color.setIcon(white);
-                    player.setColor(Color.white);
-                    player.setCharNum(4);
-                    player.setCharacterName("Mrs. White");
+                    if (player.getPlayerNum() == 6) {
+                        player.setColor(Color.white);
+                        player.setCharNum(4);
+                        player.setCharacterName("Mrs. White");
+                    }
                     try {
                         toServer.writeUTF("[all][6][set][char][4]");
                     } catch (IOException ex) {
@@ -1216,9 +1286,11 @@ public final class Lobby extends JPanel implements ReturnStringParser {
                 }
                 else {
                     jlPlayer6Color.setIcon(blue);
-                    player.setColor(Color.blue);
-                    player.setCharNum(5);
-                    player.setCharacterName("Mrs. Peacock");
+                    if (player.getPlayerNum() == 6) {
+                        player.setColor(Color.blue);
+                        player.setCharNum(5);
+                        player.setCharacterName("Mrs. Peacock");
+                    }
                     try {
                         toServer.writeUTF("[all][6][set][char][5]");
                     } catch (IOException ex) {
@@ -1373,38 +1445,6 @@ public final class Lobby extends JPanel implements ReturnStringParser {
         frame.add(mainPanel);
     }
     
-    /*
-    public JLabel getJLPlayer1Username() {
-        return jlPlayer1Username;
-    }
-    public void setJLPlayer1Username(String username) {
-        this.jlPlayer1Username.setText(username);
-    }
-    public JLabel getJLPlayer1IRLName() {
-        return jlPlayer1IRLName;
-    }
-    public void setJLPlayer1IRLName(String irlName) {
-        this.jlPlayer1IRLName.setText(irlName);
-    }
-    public JComboBox getJCBPlayer1GameCharacter() {
-        return jcbPlayer1GameCharacter;
-    }
-    public void setJCBPlayer1GameCharacter(int index) {
-        this.jcbPlayer1GameCharacter.setSelectedIndex(index);
-    }
-    public void setJCBPlayer1GameCharacterEn(boolean value) {
-        this.jcbPlayer1GameCharacter.setEnabled(value);
-    }
-    public JCheckBox getJCHKPlayer1Ready() {
-        return jchkPlayer1Ready;
-    }
-    public void setJCHKPlayer1Ready(boolean value) {
-        jchkPlayer1Ready.setEnabled(value);
-    }
-    public void setJCHKPlayer1ReadyCheck(boolean value) {
-        this.jchkPlayer1Ready.setSelected(value);
-    }*/
-    
     /**
      * 
      * @param value 
@@ -1421,38 +1461,6 @@ public final class Lobby extends JPanel implements ReturnStringParser {
         cl = (CardLayout)(jpPlayer1Ready.getLayout());
         cl.show(jpPlayer1Ready, value);
     }
-    
-    /*
-    public JLabel getJLPlayer2Username() {
-        return jlPlayer2Username;
-    }
-    public void setJLPlayer2Username(String username) {
-        this.jlPlayer2Username.setText(username);
-    }
-    public JLabel getJLPlayer2IRLName() {
-        return jlPlayer2IRLName;
-    }
-    public void setJLPlayer2IRLName(String irlName) {
-        this.jlPlayer2IRLName.setText(irlName);
-    }
-    public JComboBox getJCBPlayer2GameCharacter() {
-        return jcbPlayer2GameCharacter;
-    }
-    public void setJCBPlayer2GameCharacter(int index) {
-        this.jcbPlayer2GameCharacter.setSelectedIndex(index);
-    }
-    public void setJCBPlayer2GameCharacterEn(boolean value) {
-        this.jcbPlayer2GameCharacter.setEnabled(value);
-    }
-    public JCheckBox getJCHKPlayer2Ready() {
-        return jchkPlayer2Ready;
-    }
-    public void setJCHKPlayer2Ready(boolean value) {
-        jchkPlayer2Ready.setEnabled(value);
-    }
-    public void setJCHKPlayer2ReadyCheck(boolean value) {
-        this.jchkPlayer2Ready.setSelected(value);
-    }*/
     
     /**
      * 
@@ -1471,38 +1479,6 @@ public final class Lobby extends JPanel implements ReturnStringParser {
         cl.show(jpPlayer2Ready, value);
     }
     
-    /*
-    public JLabel getJLPlayer3Username() {
-        return jlPlayer3Username;
-    }
-    public void setJLPlayer3Username(String username) {
-        this.jlPlayer3Username.setText(username);
-    }
-    public JLabel getJLPlayer3IRLName() {
-        return jlPlayer3IRLName;
-    }
-    public void setJLPlayer3IRLName(String irlName) {
-        this.jlPlayer3IRLName.setText(irlName);
-    }
-    public JComboBox getJCBPlayer3GameCharacter() {
-        return jcbPlayer3GameCharacter;
-    }
-    public void setJCBPlayer3GameCharacter(int index) {
-        this.jcbPlayer3GameCharacter.setSelectedIndex(index);
-    }
-    public void setJCBPlayer3GameCharacterEn(boolean value) {
-        this.jcbPlayer3GameCharacter.setEnabled(value);
-    }
-    public JCheckBox getJCHKPlayer3Ready() {
-        return jchkPlayer3Ready;
-    }
-    public void setJCHKPlayer3Ready(boolean value) {
-        jchkPlayer3Ready.setEnabled(value);
-    }
-    public void setJCHKPlayer3ReadyCheck(boolean value) {
-        this.jchkPlayer3Ready.setSelected(value);
-    }*/
-    
     /**
      * 
      * @param value 
@@ -1519,38 +1495,6 @@ public final class Lobby extends JPanel implements ReturnStringParser {
         cl = (CardLayout)(jpPlayer3Ready.getLayout());
         cl.show(jpPlayer3Ready, value);
     }
-    
-    /*
-    public JLabel getJLPlayer4Username() {
-        return jlPlayer4Username;
-    }
-    public void setJLPlayer4Username(String username) {
-        this.jlPlayer4Username.setText(username);
-    }
-    public JLabel getJLPlayer4IRLName() {
-        return jlPlayer4IRLName;
-    }
-    public void setJLPlayer4IRLName(String irlName) {
-        this.jlPlayer4IRLName.setText(irlName);
-    }
-    public JComboBox getJCBPlayer4GameCharacter() {
-        return jcbPlayer4GameCharacter;
-    }
-    public void setJCBPlayer4GameCharacter(int index) {
-        this.jcbPlayer4GameCharacter.setSelectedIndex(index);
-    }
-    public void setJCBPlayer4GameCharacterEn(boolean value) {
-        this.jcbPlayer4GameCharacter.setEnabled(value);
-    }
-    public JCheckBox getJCHKPlayer4Ready() {
-        return jchkPlayer4Ready;
-    }
-    public void setJCHKPlayer4Ready(boolean value) {
-        jchkPlayer4Ready.setEnabled(value);
-    }
-    public void setJCHKPlayer4ReadyCheck(boolean value) {
-        this.jchkPlayer4Ready.setSelected(value);
-    }*/
     
     /**
      * 
@@ -1569,38 +1513,6 @@ public final class Lobby extends JPanel implements ReturnStringParser {
         cl.show(jpPlayer4Ready, value);
     }
     
-    /*
-    public JLabel getJLPlayer5Username() {
-        return jlPlayer5Username;
-    }
-    public void setJLPlayer5Username(String username) {
-        this.jlPlayer5Username.setText(username);
-    }
-    public JLabel getJLPlayer5IRLName() {
-        return jlPlayer5IRLName;
-    }
-    public void setJLPlayer5IRLName(String irlName) {
-        this.jlPlayer5IRLName.setText(irlName);
-    }
-    public JComboBox getJCBPlayer5GameCharacter() {
-        return jcbPlayer5GameCharacter;
-    }
-    public void setJCBPlayer5GameCharacter(int index) {
-        this.jcbPlayer5GameCharacter.setSelectedIndex(index);
-    }
-    public void setJCBPlayer5GameCharacterEn(boolean value) {
-        this.jcbPlayer5GameCharacter.setEnabled(value);
-    }
-    public JCheckBox getJCHKPlayer5Ready() {
-        return jchkPlayer5Ready;
-    }
-    public void setJCHKPlayer5Ready(boolean value) {
-        jchkPlayer5Ready.setEnabled(value);
-    }
-    public void setJCHKPlayer5ReadyCheck(boolean value) {
-        this.jchkPlayer5Ready.setSelected(value);
-    }*/
-    
     /**
      * 
      * @param value 
@@ -1618,38 +1530,6 @@ public final class Lobby extends JPanel implements ReturnStringParser {
         cl.show(jpPlayer5Ready, value);
     }
     
-    /*
-    public JLabel getJLPlayer6Username() {
-        return jlPlayer6Username;
-    }
-    public void setJLPlayer6Username(String username) {
-        this.jlPlayer6Username.setText(username);
-    }
-    public JLabel getJLPlayer6IRLName() {
-        return jlPlayer6IRLName;
-    }
-    public void setJLPlayer6IRLName(String irlName) {
-        this.jlPlayer6IRLName.setText(irlName);
-    }
-    public JComboBox getJCBPlayer6GameCharacter() {
-        return jcbPlayer6GameCharacter;
-    }
-    public void setJCBPlayer6GameCharacter(int index) {
-        this.jcbPlayer6GameCharacter.setSelectedIndex(index);
-    }
-    public void setJCBPlayer6GameCharacterEn(boolean value) {
-        this.jcbPlayer6GameCharacter.setEnabled(value);
-    }
-    public JCheckBox getJCHKPlayer6Ready() {
-        return jchkPlayer6Ready;
-    }
-    public void setJCHKPlayer6Ready(boolean value) {
-        this.jchkPlayer6Ready.setEnabled(value);
-    }
-    public void setJCHKPlayer6ReadyCheck(boolean value) {
-        this.jchkPlayer6Ready.setSelected(value);
-    }*/
-    
     /**
      * 
      * @param value 
@@ -1666,14 +1546,6 @@ public final class Lobby extends JPanel implements ReturnStringParser {
         cl = (CardLayout)(jpPlayer6Ready.getLayout());
         cl.show(jpPlayer6Ready, value);
     }
-    
-    /*
-    public JButton getJBStart() {
-        return jbStart;
-    }
-    public void setJBStart(boolean value) {
-        jbStart.setEnabled(value);
-    }*/
     
     /**
      * 
@@ -1695,7 +1567,7 @@ public final class Lobby extends JPanel implements ReturnStringParser {
         for(int i = 1; i < player.getPlayerNum(); i++) {
             try {
                 toServer.writeUTF("[" + i + "][" + player.getPlayerNum()
-                        + "][set][conn]");
+                        + "][set][conn][]");
                 toServer.writeUTF("[" + i + "][" + player.getPlayerNum()
                         + "][set][name][" + player.getUsername() + "]");
                 toServer.writeUTF("[" + i + "][" + player.getPlayerNum()
