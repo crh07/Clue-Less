@@ -348,91 +348,64 @@ public final class Lobby extends JPanel implements ReturnStringParser {
         playerStatusConstraint.gridx = gameCharXGrid;
         playerStatusPanel.add(jpPlayer1GameChar, playerStatusConstraint);
         jcbPlayer1GameCharacter.addItemListener((ItemEvent ie) -> {
+            int num = -1;
+            String name = "";
+            Color color = Color.BLACK;
             if (ie.getStateChange() == ItemEvent.SELECTED) {
                 if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Colonel Mustard")) {
                     jlPlayer1Color.setIcon(yellow);
-                    if (player.getPlayerNum() == 1) {
-                        player.setColor(Color.yellow);
-                        player.setCharNum(0);
-                        player.setCharacterName("Colonel Mustard");
-                    }
-                    try {
-                        toServer.writeUTF("[all][1][set][char][0]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.yellow;
+                    num = 0;
+                    name = "Colonel Mustard";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Miss Scarlet")) {
                     jlPlayer1Color.setIcon(red);
-                    if (player.getPlayerNum() == 1) {
-                        player.setColor(Color.red);
-                        player.setCharNum(1);
-                        player.setCharacterName("Miss Scarlet");
-                    }
-                    try {
-                        toServer.writeUTF("[all][1][set][char][1]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.red;
+                    num = 1;
+                    name = "Miss Scarlet";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Professor Plum")) {
                     jlPlayer1Color.setIcon(purple);
-                    if (player.getPlayerNum() == 1) {
-                        player.setColor(new Color(255,0,255));
-                        player.setCharNum(2);
-                        player.setCharacterName("Professor Plum");
-                    }
-                    try {
-                        toServer.writeUTF("[all][1][set][char][2]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = new Color(255,0,255);
+                    num = 2;
+                    name = "Professor Plum";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mr. Green")) {
                     jlPlayer1Color.setIcon(green);
-                    if (player.getPlayerNum() == 1) {
-                        player.setColor(Color.green);
-                        player.setCharNum(3);
-                        player.setCharacterName("Mr. Green");
-                    }
-                    try {
-                        toServer.writeUTF("[all][1][set][char][3]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.green;
+                    num = 3;
+                    name = "Mr. Green";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mrs. White")) {
                     jlPlayer1Color.setIcon(white);
-                    if(player.getPlayerNum() == 1) {
-                        player.setColor(Color.white);
-                        player.setCharNum(4);
-                        player.setCharacterName("Mrs. White");
-                    }
-                    try {
-                        toServer.writeUTF("[all][1][set][char][4]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.white;
+                    num = 4;
+                    name = "Mrs. White";
                 }
                 else {
                     jlPlayer1Color.setIcon(blue);
-                    if(player.getPlayerNum() == 1) {
-                        player.setColor(Color.blue);
-                        player.setCharNum(5);
-                        player.setCharacterName("Mrs. Peacock");
-                    }
+                    color = Color.blue;
+                    num = 5;
+                    name = "Mrs. Peacock";
+                }
+                if (player.getPlayerNum() == 1) {
+                    player.setColor(color);
+                    player.setCharNum(num);
+                    player.setCharacterName(name);
+
                     try {
-                        toServer.writeUTF("[all][1][set][char][5]");
+                        toServer.writeUTF("[all][" + player.getPlayerNum() 
+                            + "][set][char][" + player.getCharNum() + "]");
                     } catch (IOException ex) {
                         Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -520,91 +493,64 @@ public final class Lobby extends JPanel implements ReturnStringParser {
         playerStatusConstraint.gridx = gameCharXGrid;
         playerStatusPanel.add(jpPlayer2GameChar, playerStatusConstraint);
         jcbPlayer2GameCharacter.addItemListener((ItemEvent ie) -> {
+            Color color = Color.black;
+            int num = -1;
+            String name = "";
             if (ie.getStateChange() == ItemEvent.SELECTED) {
                 if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Colonel Mustard")) {
                     jlPlayer2Color.setIcon(yellow);
-                    if (player.getPlayerNum() == 2) {
-                        player.setColor(Color.yellow);
-                        player.setCharNum(0);
-                        player.setCharacterName("Colonel Mustard");
-                    }
-                    try {
-                        toServer.writeUTF("[all][2][set][char][0]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.yellow;
+                    num = 0;
+                    name = "Colonel Mustard";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Miss Scarlet")) {
                     jlPlayer2Color.setIcon(red);
-                    if (player.getPlayerNum() == 2) {
-                        player.setColor(Color.red);
-                        player.setCharNum(1);
-                        player.setCharacterName("Miss Scarlet");
-                    }
-                    try {
-                        toServer.writeUTF("[all][2][set][char][1]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.red;
+                    num = 1;
+                    name = "Miss Scarlet";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Professor Plum")) {
                     jlPlayer2Color.setIcon(purple);
-                    if (player.getPlayerNum() == 2) {
-                        player.setColor(new Color(255,0,255));
-                        player.setCharNum(2);
-                        player.setCharacterName("Professor Plum");
-                    }
-                    try {
-                        toServer.writeUTF("[all][2][set][char][2]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = new Color(255,0,255);
+                    num = 2;
+                    name = "Professor Plum";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mr. Green")) {
                     jlPlayer2Color.setIcon(green);
-                    if (player.getPlayerNum() == 2) {
-                        player.setColor(Color.green);
-                        player.setCharNum(3);
-                        player.setCharacterName("Mr. Green");
-                    }
-                    try {
-                        toServer.writeUTF("[all][2][set][char][3]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.green;
+                    num = 3;
+                    name = "Mr. Green";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mrs. White")) {
                     jlPlayer2Color.setIcon(white);
-                    if(player.getPlayerNum() == 2) {
-                        player.setColor(Color.white);
-                        player.setCharNum(4);
-                        player.setCharacterName("Mrs. White");
-                    }
-                    try {
-                        toServer.writeUTF("[all][2][set][char][4]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.white;
+                    num = 4;
+                    name = "Mrs. White";
                 }
                 else {
                     jlPlayer2Color.setIcon(blue);
-                    if(player.getPlayerNum() == 2) {
-                        player.setColor(Color.blue);
-                        player.setCharNum(5);
-                        player.setCharacterName("Mrs. Peacock");
-                    }
+                    color = Color.blue;
+                    num = 5;
+                    name = "Mrs. Peacock";
+                }
+                if (player.getPlayerNum() == 2) {
+                    player.setColor(color);
+                    player.setCharNum(num);
+                    player.setCharacterName(name);
+
                     try {
-                        toServer.writeUTF("[all][2][set][char][5]");
+                        toServer.writeUTF("[all][" + player.getPlayerNum() 
+                            + "][set][char][" + player.getCharNum() + "]");
                     } catch (IOException ex) {
                         Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -692,91 +638,64 @@ public final class Lobby extends JPanel implements ReturnStringParser {
         playerStatusConstraint.gridx = gameCharXGrid;
         playerStatusPanel.add(jpPlayer3GameChar, playerStatusConstraint);
         jcbPlayer3GameCharacter.addItemListener((ItemEvent ie) -> {
+            Color color = Color.black;
+            int num = -1;
+            String name = "";
             if (ie.getStateChange() == ItemEvent.SELECTED) {
                 if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Colonel Mustard")) {
                     jlPlayer3Color.setIcon(yellow);
-                    if (player.getPlayerNum() == 3) {
-                        player.setColor(Color.yellow);
-                        player.setCharNum(0);
-                        player.setCharacterName("Colonel Mustard");
-                    }
-                    try {
-                        toServer.writeUTF("[all][3][set][char][0]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.yellow;
+                    num = 0;
+                    name = "Colonel Mustard";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Miss Scarlet")) {
                     jlPlayer3Color.setIcon(red);
-                    if (player.getPlayerNum() == 3) {
-                        player.setColor(Color.red);
-                        player.setCharNum(1);
-                        player.setCharacterName("Miss Scarlet");
-                    }
-                    try {
-                        toServer.writeUTF("[all][3][set][char][1]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.red;
+                    num = 1;
+                    name = "Miss Scarlet";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Professor Plum")) {
                     jlPlayer3Color.setIcon(purple);
-                    if (player.getPlayerNum() == 3) {
-                        player.setColor(new Color(255,0,255));
-                        player.setCharNum(2);
-                        player.setCharacterName("Professor Plum");
-                    }
-                    try {
-                        toServer.writeUTF("[all][3][set][char][2]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = new Color(255,0,255);
+                    num = 2;
+                    name = "Professor Plum";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mr. Green")) {
                     jlPlayer3Color.setIcon(green);
-                    if (player.getPlayerNum() == 3) {
-                        player.setColor(Color.green);
-                        player.setCharNum(3);
-                        player.setCharacterName("Mr. Green");
-                    }
-                    try {
-                        toServer.writeUTF("[all][3][set][char][3]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.green;
+                    num = 3;
+                    name = "Mr. Green";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mrs. White")) {
                     jlPlayer3Color.setIcon(white);
-                    if(player.getPlayerNum() == 3) {
-                        player.setColor(Color.white);
-                        player.setCharNum(4);
-                        player.setCharacterName("Mrs. White");
-                    }
-                    try {
-                        toServer.writeUTF("[all][3][set][char][4]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.white;
+                    num = 4;
+                    name = "Mrs. White";
                 }
                 else {
                     jlPlayer3Color.setIcon(blue);
-                    if(player.getPlayerNum() == 3) {
-                        player.setColor(Color.blue);
-                        player.setCharNum(5);
-                        player.setCharacterName("Mrs. Peacock");
-                    }
+                    color = Color.blue;
+                    num = 5;
+                    name = "Mrs. Peacock";
+                }
+                if (player.getPlayerNum() == 3) {
+                    player.setColor(color);
+                    player.setCharNum(num);
+                    player.setCharacterName(name);
+
                     try {
-                        toServer.writeUTF("[all][3][set][char][5]");
+                        toServer.writeUTF("[all][" + player.getPlayerNum() 
+                            + "][set][char][" + player.getCharNum() + "]");
                     } catch (IOException ex) {
                         Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -864,91 +783,64 @@ public final class Lobby extends JPanel implements ReturnStringParser {
         playerStatusConstraint.gridx = gameCharXGrid;
         playerStatusPanel.add(jpPlayer4GameChar, playerStatusConstraint);
         jcbPlayer4GameCharacter.addItemListener((ItemEvent ie) -> {
+            Color color = Color.black;
+            int num = -1;
+            String name = "";
             if (ie.getStateChange() == ItemEvent.SELECTED) {
                 if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Colonel Mustard")) {
                     jlPlayer4Color.setIcon(yellow);
-                    if (player.getPlayerNum() == 4) {
-                        player.setColor(Color.yellow);
-                        player.setCharNum(0);
-                        player.setCharacterName("Colonel Mustard");
-                    }
-                    try {
-                        toServer.writeUTF("[all][4][set][char][0]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.yellow;
+                    num = 0;
+                    name = "Colonel Mustard";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Miss Scarlet")) {
                     jlPlayer4Color.setIcon(red);
-                    if (player.getPlayerNum() == 4) {
-                        player.setColor(Color.red);
-                        player.setCharNum(1);
-                        player.setCharacterName("Miss Scarlet");
-                    }
-                    try {
-                        toServer.writeUTF("[all][4][set][char][1]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.red;
+                    num = 1;
+                    name = "Miss Scarlet";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Professor Plum")) {
                     jlPlayer4Color.setIcon(purple);
-                    if (player.getPlayerNum() == 4) {
-                        player.setColor(new Color(255,0,255));
-                        player.setCharNum(2);
-                        player.setCharacterName("Professor Plum");
-                    }
-                    try {
-                        toServer.writeUTF("[all][4][set][char][2]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = new Color(255,0,255);
+                    num = 2;
+                    name = "Professor Plum";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mr. Green")) {
                     jlPlayer4Color.setIcon(green);
-                    if (player.getPlayerNum() == 4) {
-                        player.setColor(Color.green);
-                        player.setCharNum(3);
-                        player.setCharacterName("Mr. Green");
-                    }
-                    try {
-                        toServer.writeUTF("[all][4][set][char][3]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.green;
+                    num = 3;
+                    name = "Mr. Green";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mrs. White")) {
                     jlPlayer4Color.setIcon(white);
-                    if(player.getPlayerNum() == 4) {
-                        player.setColor(Color.white);
-                        player.setCharNum(4);
-                        player.setCharacterName("Mrs. White");
-                    }
-                    try {
-                        toServer.writeUTF("[all][4][set][char][4]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.white;
+                    num = 4;
+                    name = "Mrs. White";
                 }
                 else {
                     jlPlayer4Color.setIcon(blue);
-                    if(player.getPlayerNum() == 4) {
-                        player.setColor(Color.blue);
-                        player.setCharNum(5);
-                        player.setCharacterName("Mrs. Peacock");
-                    }
+                    color = Color.blue;
+                    num = 5;
+                    name = "Mrs. Peacock";
+                }
+                if (player.getPlayerNum() == 4) {
+                    player.setColor(color);
+                    player.setCharNum(num);
+                    player.setCharacterName(name);
+
                     try {
-                        toServer.writeUTF("[all][4][set][char][5]");
+                        toServer.writeUTF("[all][" + player.getPlayerNum() 
+                            + "][set][char][" + player.getCharNum() + "]");
                     } catch (IOException ex) {
                         Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -1036,91 +928,64 @@ public final class Lobby extends JPanel implements ReturnStringParser {
         playerStatusConstraint.gridx = gameCharXGrid;
         playerStatusPanel.add(jpPlayer5GameChar, playerStatusConstraint);
         jcbPlayer5GameCharacter.addItemListener((ItemEvent ie) -> {
+            Color color = Color.black;
+            int num = -1;
+            String name = "";
             if (ie.getStateChange() == ItemEvent.SELECTED) {
                 if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Colonel Mustard")) {
                     jlPlayer5Color.setIcon(yellow);
-                    if (player.getPlayerNum() == 5) {
-                        player.setColor(Color.yellow);
-                        player.setCharNum(0);
-                        player.setCharacterName("Colonel Mustard");
-                    }
-                    try {
-                        toServer.writeUTF("[all][5][set][char][0]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.yellow;
+                    num = 0;
+                    name = "Colonel Mustard";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Miss Scarlet")) {
                     jlPlayer5Color.setIcon(red);
-                    if (player.getPlayerNum() == 5) {
-                        player.setColor(Color.red);
-                        player.setCharNum(1);
-                        player.setCharacterName("Miss Scarlet");
-                    }
-                    try {
-                        toServer.writeUTF("[all][5][set][char][1]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.red;
+                    num = 1;
+                    name = "Miss Scarlet";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Professor Plum")) {
                     jlPlayer5Color.setIcon(purple);
-                    if (player.getPlayerNum() == 5) {
-                        player.setColor(new Color(255,0,255));
-                        player.setCharNum(2);
-                        player.setCharacterName("Professor Plum");
-                    }
-                    try {
-                        toServer.writeUTF("[all][5][set][char][2]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = new Color(255, 0, 255);
+                    num = 2;
+                    name = "Professor Plum";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mr. Green")) {
                     jlPlayer5Color.setIcon(green);
-                    if (player.getPlayerNum() == 5) {
-                        player.setColor(Color.green);
-                        player.setCharNum(3);
-                        player.setCharacterName("Mr. Green");
-                    }
-                    try {
-                        toServer.writeUTF("[all][5][set][char][3]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.green;
+                    num = 3;
+                    name = "Mr. Green";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mrs. White")) {
                     jlPlayer5Color.setIcon(white);
-                    if(player.getPlayerNum() == 5) {
-                        player.setColor(Color.white);
-                        player.setCharNum(4);
-                        player.setCharacterName("Mrs. White");
-                    }
-                    try {
-                        toServer.writeUTF("[all][5][set][char][4]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.white;
+                    num = 4;
+                    name = "Mrs. White";
                 }
                 else {
                     jlPlayer5Color.setIcon(blue);
-                    if(player.getPlayerNum() == 5) {
-                        player.setColor(Color.blue);
-                        player.setCharNum(5);
-                        player.setCharacterName("Mrs. Peacock");
-                    }
+                    color = Color.blue;
+                    num = 5;
+                    name = "Mrs. Peacock";
+                }
+                if (player.getPlayerNum() == 5) {
+                    player.setColor(color);
+                    player.setCharNum(num);
+                    player.setCharacterName(name);
+
                     try {
-                        toServer.writeUTF("[all][5][set][char][5]");
+                        toServer.writeUTF("[all][" + player.getPlayerNum() 
+                            + "][set][char][" + player.getCharNum() + "]");
                     } catch (IOException ex) {
                         Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -1208,91 +1073,64 @@ public final class Lobby extends JPanel implements ReturnStringParser {
         playerStatusConstraint.gridx = gameCharXGrid;
         playerStatusPanel.add(jpPlayer6GameChar, playerStatusConstraint);
         jcbPlayer6GameCharacter.addItemListener((ItemEvent ie) -> {
+            Color color = Color.black;
+            int num = -1;
+            String name = "";
             if (ie.getStateChange() == ItemEvent.SELECTED) {
                 if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Colonel Mustard")) {
                     jlPlayer6Color.setIcon(yellow);
-                    if (player.getPlayerNum() == 6) {
-                        player.setColor(Color.yellow);
-                        player.setCharNum(0);
-                        player.setCharacterName("Colonel Mustard");
-                    }
-                    try {
-                        toServer.writeUTF("[all][6][set][char][0]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.yellow;
+                    num = 0;
+                    name = "Colonel Mustard";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Miss Scarlet")) {
                     jlPlayer6Color.setIcon(red);
-                    if (player.getPlayerNum() == 6) {
-                        player.setColor(Color.red);
-                        player.setCharNum(1);
-                        player.setCharacterName("Miss Scarlet");
-                    }
-                    try {
-                        toServer.writeUTF("[all][6][set][char][1]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.red;
+                    num = 1;
+                    name = "Miss Scarlet";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Professor Plum")) {
                     jlPlayer6Color.setIcon(purple);
-                    if (player.getPlayerNum() == 6) {
-                        player.setColor(new Color(255,0,255));
-                        player.setCharNum(2);
-                        player.setCharacterName("Professor Plum");
-                    }
-                    try {
-                        toServer.writeUTF("[all][6][set][char][2]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = new Color(255,0,255);
+                    num = 2;
+                    name = "Professor Plum";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mr. Green")) {
                     jlPlayer6Color.setIcon(green);
-                    if (player.getPlayerNum() == 6) {
-                        player.setColor(Color.green);
-                        player.setCharNum(3);
-                        player.setCharacterName("Mr. Green");
-                    }
-                    try {
-                        toServer.writeUTF("[all][6][set][char][3]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.green;
+                    num = 3;
+                    name = "Mr. Green";
                 }
                 else if (Arrays.toString(
                         ie.getItemSelectable().getSelectedObjects())
                         .contains("Mrs. White")) {
                     jlPlayer6Color.setIcon(white);
-                    if (player.getPlayerNum() == 6) {
-                        player.setColor(Color.white);
-                        player.setCharNum(4);
-                        player.setCharacterName("Mrs. White");
-                    }
-                    try {
-                        toServer.writeUTF("[all][6][set][char][4]");
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    color = Color.white;
+                    num = 4;
+                    name = "Mrs. White";
                 }
                 else {
                     jlPlayer6Color.setIcon(blue);
-                    if (player.getPlayerNum() == 6) {
-                        player.setColor(Color.blue);
-                        player.setCharNum(5);
-                        player.setCharacterName("Mrs. Peacock");
-                    }
+                    color = Color.blue;
+                    num = 5;
+                    name = "Mrs. Peacock";
+                }
+                if (player.getPlayerNum() == 6) {
+                    player.setColor(color);
+                    player.setCharNum(num);
+                    player.setCharacterName(name);
+
                     try {
-                        toServer.writeUTF("[all][6][set][char][5]");
+                        toServer.writeUTF("[all][" + player.getPlayerNum() 
+                            + "][set][char][" + player.getCharNum() + "]");
                     } catch (IOException ex) {
                         Logger.getLogger(Lobby.class.getName()).log(Level.SEVERE, null, ex);
                     }
