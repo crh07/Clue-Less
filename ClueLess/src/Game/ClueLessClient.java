@@ -9,8 +9,12 @@ package Game;
 /**
  * Import all necessary libraries
  */
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.*;
 import java.net.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -55,6 +59,45 @@ public class ClueLessClient extends JFrame
          * information (IP Address, port, name, password)
          */
         connectionUI();
+        
+        /**
+         * Here is the Window Listener.  Essentially when the action of close
+         * the window happens, we will issue a System.exit(0); but not before 
+         * performing other actions.
+         */
+        addWindowListener(new WindowAdapter()
+        {
+            /**
+             * Here is the windowClosing method for when the window is preparing
+             * to close.
+             * @param e 
+             */
+            @Override
+            public void windowClosing(WindowEvent e)
+            {
+                /**
+                 * 
+                 */
+                if (player != null) {
+                    if (player.getSocket().isConnected()) {
+                        try {
+                            DataOutputStream toServer = new DataOutputStream(player.getSocket().getOutputStream());
+                            toServer.writeUTF("[server][" + player.getPlayerNum() + "][set][disconn][0]");
+                            player.getSocket().shutdownInput();
+                            player.getSocket().shutdownOutput();
+                            player.getSocket().close();
+                        } catch (IOException ex) {
+                            Logger.getLogger(ClueLessClient.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                }
+                
+                /**
+                 * exit the system
+                 */
+                System.exit(0);
+            }
+        });
     }
     
     /**
